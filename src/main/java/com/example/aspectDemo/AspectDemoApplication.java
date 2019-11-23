@@ -17,19 +17,20 @@ public class AspectDemoApplication implements CommandLineRunner {
         SpringApplication.run(AspectDemoApplication.class, args);
 
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        User MainUser = (User) context.getBean("user");
+        User MainUser = context.getBean("user", User.class);
+
         NameCounter mainNameCounter = context.getBean("nameCounter", NameCounter.class);
 
         System.out.println("User name from main() is: " + MainUser.getName() + "\n");
 
-		mainNameCounter.countLetters(MainUser);
+        mainNameCounter.countLetters(MainUser);
         System.out.println("\n");
 
         someMethod();
 
     }
 
-    public static void someMethod(){
+    public static void someMethod() {
         System.out.println("Some method = hello there.");
     }
 
@@ -42,7 +43,7 @@ public class AspectDemoApplication implements CommandLineRunner {
         System.out.println("User name is: " + testUser.getName());
         nameCounter.countLetters(testUser);
 
-        System.out.println("================>>>> end of run()"+ "\n");
+        System.out.println("================>>>> end of run()" + "\n");
 
     }
 }

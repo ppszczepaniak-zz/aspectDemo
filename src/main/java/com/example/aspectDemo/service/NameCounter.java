@@ -16,7 +16,7 @@ public class NameCounter {
             if (Character.isLetter(user.getName().charAt(i)))
                 numberOfLetters++;
         }
-        System.out.println("Letters: " + numberOfLetters);
+        System.out.println("New name is: " + user.getName() + "; Letters: " + numberOfLetters);
     }
 
 }
