@@ -15,6 +15,8 @@ public class AspectDemoApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(AspectDemoApplication.class, args);
 
+
+        //self (obvious) comment: this should go to run() if you want Aspects to work in run()
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         User MainUser = context.getBean("user", User.class);
         NameCounter mainNameCounter = context.getBean("nameCounter", NameCounter.class);
