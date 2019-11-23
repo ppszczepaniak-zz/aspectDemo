@@ -9,18 +9,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyAspect {
 
-
-
     @Before("execution(* com.example.aspectDemo.service.NameCounter.countLetters(..))")         //point-cut expression
     public void countLettersAdvice(JoinPoint joinPoint)
     {
-        System.out.println("===> AOP MESSAGE: NameCounter.countLetters() : " + joinPoint.getSignature().getName());
+        System.out.println("===> AOP MESSAGE BEFORE NameCounter method with name: " + joinPoint.getSignature().getName());
     }
 
 
     @Before("execution(* com.example.aspectDemo.*.*(..))")
     public void anything(){
-        System.out.println("===> AOP MESSAGE: anything");
+        System.out.println("===> AOP MESSAGE: BEFORE anything...");
+    }
+
+    @Before("execution(* com.example.aspectDemo.*.*.*(..))")
+    public void anythingFromPackage(){
+        System.out.println("===> AOP MESSAGE: BEFORE anything from any package...");
     }
 
     @Before("execution(public String getName())")
@@ -28,17 +31,16 @@ public class MyAspect {
         System.out.println("===> AOP MESSAGE: Executing Advice on getName()");
     }
 
-    @Before("execution(* com.example.aspectDemo.*.get*())")
+    @Before("execution(* com.example.aspectDemo.model.*.get*())")
     public void getAllAdvice(){
-        System.out.println("===> AOP MESSAGE: Service method getter called");
+        System.out.println("===> AOP MESSAGE: Model method getter called");
     }
 
 
-
-//    @After("execution(* com.example.aspectDemo.*(..))")
-//    public void afterMethod(){
-//        System.out.println("===> this is after method comment");
-//    }
+    @After("execution(* com.example.aspectDemo.service.*.*(..))")
+    public void afterMethod(){
+        System.out.println("===> AOP MESSAGE: AFTER ANY service method comment");
+    }
 
 //    @AfterReturning(value = "execution(* com.example.aspectDemo.controller.*(..))", returning = "returnValue")
 //    public void afterReturn(Object returnValue) throws Throwable {
