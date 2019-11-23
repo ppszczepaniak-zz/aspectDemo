@@ -18,7 +18,7 @@ public class MyAspect {
 
     @Before("execution(* com.example.aspectDemo.*.*(..))")
     public void anything(){
-        System.out.println("===> AOP MESSAGE: BEFORE anything...");
+        System.out.println("===> AOP MESSAGE: BEFORE any method from ...");
     }
 
     @Before("execution(* com.example.aspectDemo.*.*.*(..))")
