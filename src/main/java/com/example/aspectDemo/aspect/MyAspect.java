@@ -18,22 +18,22 @@ public class MyAspect {
 
     @Before("execution(* com.example.aspectDemo.*.*(..))")
     public void anything(){
-        System.out.println("===> AOP MESSAGE: BEFORE any method from ...");
+        System.out.println("===> AOP MESSAGE: BEFORE any method from AspectDemoApplication");
     }
 
-    @Before("execution(* com.example.aspectDemo.*.*.*(..))")
-    public void anythingFromPackage(){
-        System.out.println("===> AOP MESSAGE: BEFORE anything from any package...");
-    }
+//    @Before("execution(* com.example.aspectDemo.*.*.*(..))")
+//    public void anythingFromPackage(){
+//        System.out.println("===> AOP MESSAGE: BEFORE anything from any package...");
+//    }
 
-    @Before("execution(public String getName())")
+    @Before("execution(public String setName())")
     public void getNameAdvice(){
-        System.out.println("===> AOP MESSAGE: Executing Advice on getName()");
+        System.out.println("===> AOP MESSAGE: Executing Advice on setName()");
     }
 
-    @Before("execution(* com.example.aspectDemo.model.*.get*())")
+    @Before("execution(* com.example.aspectDemo.model.*.set*())")
     public void getAllAdvice(){
-        System.out.println("===> AOP MESSAGE: Model method getter called");
+        System.out.println("===> AOP MESSAGE: Model method setter called");
     }
 
 
@@ -42,9 +42,5 @@ public class MyAspect {
         System.out.println("===> AOP MESSAGE: AFTER ANY service method comment");
     }
 
-//    @AfterReturning(value = "execution(* com.example.aspectDemo.controller.*(..))", returning = "returnValue")
-//    public void afterReturn(Object returnValue) throws Throwable {
-//        System.out.println("value return was " + returnValue);
-//    }
 
 }

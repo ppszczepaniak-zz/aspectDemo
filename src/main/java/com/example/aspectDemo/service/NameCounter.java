@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 public class NameCounter {
 
     public void countLetters(User user) {
+
+        user.setName("TestName");
         int numberOfLetters = 0;
 
         for (int i = 0; i < user.getName().length(); i++) {
