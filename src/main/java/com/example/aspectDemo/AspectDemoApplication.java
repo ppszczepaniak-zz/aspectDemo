@@ -18,11 +18,11 @@ public class AspectDemoApplication implements CommandLineRunner {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         User MainUser = (User) context.getBean("user");
-        NameCounter MainNameCounter = context.getBean("nameCounter", NameCounter.class);
+        NameCounter mainNameCounter = context.getBean("nameCounter", NameCounter.class);
 
         System.out.println("User name from main() is: " + MainUser.getName() + "\n");
 
-		MainNameCounter.countLetters(MainUser);
+		mainNameCounter.countLetters(MainUser);
         System.out.println("\n");
 
         someMethod();
