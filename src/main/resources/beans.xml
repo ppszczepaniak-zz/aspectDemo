@@ -11,7 +11,7 @@
 
     <!-- Definition for user bean -->
     <bean id = "user" class = "com.example.aspectDemo.model.User">
-        <property name = "name"  value = "Main Motherfucker" />
+        <property name = "name"  value = "Main Smith" />
     </bean>
 
     <!-- Configure nameCounter bean -->

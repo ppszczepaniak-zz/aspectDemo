@@ -36,7 +36,7 @@ public class AspectDemoApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("================>>>> run() starts here...");
-        User testUser = new User("Bad Motherfucker");
+        User testUser = new User("Run Smith");
         NameCounter nameCounter = new NameCounter();
 
         System.out.println("User name is: " + testUser.getName());
