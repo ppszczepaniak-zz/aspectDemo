@@ -13,18 +13,15 @@ public class AspectDemoApplication implements CommandLineRunner {
 
 
     public static void main(String[] args) {
-
         SpringApplication.run(AspectDemoApplication.class, args);
 
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         User MainUser = context.getBean("user", User.class);
-
         NameCounter mainNameCounter = context.getBean("nameCounter", NameCounter.class);
 
         System.out.println("User name from main() is: " + MainUser.getName() + "\n");
 
         mainNameCounter.countLetters(MainUser);
-        System.out.println("\n");
 
         someMethod();
 
