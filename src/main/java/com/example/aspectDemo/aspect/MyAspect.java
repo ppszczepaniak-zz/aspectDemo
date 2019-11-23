@@ -12,7 +12,7 @@ public class MyAspect {
 
 
     @Before("execution(* com.example.aspectDemo.service.NameCounter.countLetters(..))")         //point-cut expression
-    public void logBeforeV1(JoinPoint joinPoint)
+    public void countLettersAdvice(JoinPoint joinPoint)
     {
         System.out.println("===> AOP MESSAGE: NameCounter.countLetters() : " + joinPoint.getSignature().getName());
     }

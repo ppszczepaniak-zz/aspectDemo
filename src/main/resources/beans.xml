@@ -14,6 +14,10 @@
         <property name = "name"  value = "Bad Motherfucker" />
     </bean>
 
+    <!-- Configure nameCounter bean -->
+    <bean name="nameCounter" class="com.example.aspectDemo.service.NameCounter">
+    </bean>
+
     <!-- Definition for aspect -->
     <bean id = "aspect" class = "com.example.aspectDemo.aspect.MyAspect"/>
 

@@ -14,32 +14,37 @@ import org.springframework.stereotype.Component;
 public class AspectDemoApplication implements CommandLineRunner {
 
 
-	public static void main(String[] args) {
-		SpringApplication.run(AspectDemoApplication.class, args);
+    public static void main(String[] args) {
+        System.out.println("================>>>> main() starts here...");
+        SpringApplication.run(AspectDemoApplication.class, args);
 
-		ApplicationContext context =
-		new ClassPathXmlApplicationContext("Beans.xml");
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("Beans.xml");
 
-		User user = (User) context.getBean("user");
-	//	User user = new User("Main Motherfucker");
-		System.out.println(user.getName());
-
-	}
+        User MainUser = (User) context.getBean("user");
+		NameCounter MainNameCounter = context.getBean("nameCounter", NameCounter.class);
 
 
 
+        //	User user = new User("Main Motherfucker");
+        System.out.println("from main(): " + MainUser.getName());
 
 
-	@Override
-	public void run(String... args) throws Exception {
-		System.out.println("================>>>> test starts here...");
-		User testUser = new User("Bad Motherfucker");
-		NameCounter nameCounter = new NameCounter();
 
-		System.out.println("User name is: "+ testUser.getName());
-		nameCounter.countLetters(testUser);
+		MainNameCounter.countLetters(MainUser);
+        System.out.println("================>>>> end of main()");
+    }
 
-		System.out.println("============================");
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println("================>>>> run() starts here...");
+        User testUser = new User("Bad Motherfucker");
+        NameCounter nameCounter = new NameCounter();
 
-	}
+        System.out.println("User name is: " + testUser.getName());
+        nameCounter.countLetters(testUser);
+
+        System.out.println("================>>>> end of run()");
+
+    }
 }
